@@ -29,7 +29,7 @@ jobs:
           VIDIQ_API_KEY: ${{ secrets.VIDIQ_API_KEY }}
           MY_CHANNEL_ID: UCbkLhZ5uUnOejyQmtK5GOOw
         run: |
-          python scripts/generate_report.py || true
+          python scripts/generate_report.py 2>&1
           mkdir -p docs
           if [ ! -f docs/index.html ]; then
             echo "<p>Report pending</p>" > docs/index.html
