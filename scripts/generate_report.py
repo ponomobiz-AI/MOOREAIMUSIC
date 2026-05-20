@@ -244,7 +244,7 @@ def render_html(data: dict) -> str:
         bs = v.get("breakout_score", 0)
         upload_html += f"""
         <div style="background:#fff;border:0.5px solid #e5e5e0;border-radius:12px;padding:14px;margin-bottom:10px;display:flex;gap:12px;align-items:flex-start;">
-          {"" if not v.get("thumbnail") else f'<a href="{yt(v.get("video_id",""))}" target="_blank"><img src="{v["thumbnail"]}" style="width:80px;height:46px;border-radius:4px;object-fit:cover;flex-shrink:0;" onerror="this.style.display=\'none\'" /></a>'}
+          {"" if not v.get("thumbnail") else '<a href="' + yt(v.get("video_id","")) + '" target="_blank"><img src="' + v.get("thumbnail","") + '" style="width:80px;height:46px;border-radius:4px;object-fit:cover;flex-shrink:0;" /></a>'}
           <div style="flex:1;min-width:0;">
             <a href="{yt(v.get('video_id',''))}" target="_blank" style="font-size:13px;font-weight:600;color:#1a1a18;text-decoration:none;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{v.get('title','')}</a>
             <p style="font-size:12px;color:#888;margin:3px 0 6px;">{v.get('channel','')}</p>
@@ -265,7 +265,7 @@ def render_html(data: dict) -> str:
         outlier_html += f"""
         <div style="background:#fff;border:0.5px solid #e5e5e0;border-radius:12px;padding:14px;margin-bottom:10px;">
           <div style="display:flex;gap:12px;align-items:flex-start;">
-            {"" if not v.get("thumbnail") else f'<a href="{yt(v.get("video_id",""))}" target="_blank"><img src="{v["thumbnail"]}" style="width:80px;height:46px;border-radius:4px;object-fit:cover;flex-shrink:0;" onerror="this.style.display=\'none\'" /></a>'}
+{"" if not v.get("thumbnail") else '<a href="' + yt(v.get("video_id","")) + '" target="_blank"><img src="' + v.get("thumbnail","") + '" style="width:80px;height:46px;border-radius:4px;object-fit:cover;flex-shrink:0;" /></a>'}
             <div style="flex:1;min-width:0;">
               <a href="{yt(v.get('video_id',''))}" target="_blank" style="font-size:13px;font-weight:600;color:#1a1a18;text-decoration:none;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{v.get('title','')}</a>
               <p style="font-size:12px;color:#888;margin:3px 0 6px;">{v.get('channel','')}</p>
