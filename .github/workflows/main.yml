@@ -29,12 +29,10 @@ jobs:
           VIDIQ_API_KEY: ${{ secrets.VIDIQ_API_KEY }}
           MY_CHANNEL_ID: UCbkLhZ5uUnOejyQmtK5GOOw
         run: |
-          python scripts/generate_report.py 2>&1
           mkdir -p docs
-          if [ ! -f docs/index.html ]; then
-            echo "<p>Report pending</p>" > docs/index.html
-          fi
-
+          python scripts/generate_report.py > docs/output.txt 2>&1 || true
+          cat docs/output.txt
+          echo "<pre>$(cat docs/output.txt)</pre>" > docs/index.html
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
